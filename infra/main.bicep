@@ -10,7 +10,7 @@ param workloadName string
 param location string
 
 @description('Name of the resource group. If empty, a unique name will be generated.')
-param resourceGroupName string = ''
+param resourceGroupName string = 'LoadBalancingTestGroup'
 
 @description('Tags for all resources.')
 param tags object = {}
@@ -22,24 +22,24 @@ type openAIInstanceInfo = {
 }
 
 @description('Name of the Managed Identity. If empty, a unique name will be generated.')
-param managedIdentityName string = ''
+param managedIdentityName string = 'LoadBalancerTestIdentity'
 @description('Name of the Key Vault. If empty, a unique name will be generated.')
-param keyVaultName string = ''
+param keyVaultName string = 'LoadBalancerTestVault'
 @description('OpenAI instances to deploy. Defaults to 2 across different regions.')
 param openAIInstances openAIInstanceInfo[] = [
   {
-    name: ''
-    location: 'westeurope'
-    suffix: 'weu'
+    name: 'LoadBalancerTestOpenAICanada'
+    location: 'canadacentral'
+    suffix: 'cca'
   }
   {
-    name: ''
-    location: 'eastus'
-    suffix: 'eus'
+    name: 'LoadBalancerTestOpenAIEestUS'
+    location: 'eastus2'
+    suffix: 'eus2'
   }
 ]
 @description('Name of the API Management service. If empty, a unique name will be generated.')
-param apiManagementName string = ''
+param apiManagementName string = 'LoadBalancerTestAPIM'
 @description('Email address for the API Management service publisher.')
 param apiManagementPublisherEmail string
 @description('Name of the API Management service publisher.')
